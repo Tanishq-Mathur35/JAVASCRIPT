@@ -3,19 +3,42 @@
 
 // object literals
 
-const mySym = Symbol("key1")
+const mySym = Symbol("Key1");
 
 const JsUser = {
-    "full name": "JavaScript User",
-    age: 25,
-    [mySym]: "myKey1",
-    location: "USA",
-    email: "hello@ac.in",
+    name: "Tanishq",
+    "full name": "Tanishq Mathur",
+    [mySym]: "MyKey1",
+    age: 19,
+    location: "India",
+    email: "tanishq@example.com",
     isLoggedIn: false,
-    lastLoginDays: ["Monday", "Friday"]
+    lastLoggedInDays: ["Monday", "Friday"]
 }
 
-console.log(JsUser.email)
-console.log(JsUser["email"])
-console.log(JsUser["full name"])
-console.log(JsUser[mySym])
+// console.log(JsUser.email);
+// console.log(JsUser["email"]);
+// console.log(JsUser["full name"]);
+// console.log(JsUser[mySym]);
+
+
+JsUser.email = "newemail@example.com";
+// Object.freeze(JsUser);
+JsUser.email = "anotheremail@example.com"; // It will not work bcoz object is frozen
+
+// console.log(JsUser);
+
+
+// Fucntion in Objects
+
+JsUser.greetUser = function () {
+    console.log("Hello JsUser");
+}
+
+JsUser.greetUserTwo = function () {
+    console.log(`Hello JS user, ${this.name}`);
+}
+
+
+console.log(JsUser.greetUserTwo());
+console.log(JsUser.greetUser());
